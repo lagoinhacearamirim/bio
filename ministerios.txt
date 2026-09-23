@@ -1,5 +1,5 @@
-Titulo: [Lagoinha Music]
-Texto: [# Ministério de Louvor
+Titulo: Lagoinha Music
+Texto: # Ministério de Louvor
 
 ## Muito além de cantar
 
@@ -97,9 +97,10 @@ Não buscamos ser o centro.
 
 Buscamos apontar para **Cristo**.
 
-> **Menos de nós. Mais dEle.**];
-Titulo: [Follow]
-Texto: [# Mídia — Follow
+> **Menos de nós. Mais dEle.**
+
+Titulo: Follow
+Texto: # Mídia — Follow
 
 ## Alcançando vidas além das quatro paredes
 
@@ -242,9 +243,10 @@ Para apontar para Cristo.**
 
 Porque, no final, nosso objetivo não é simplesmente ter um perfil bonito.
 
-É fazer com que, através dele, **vidas sejam alcançadas e o Evangelho seja pregado.**];
-Titulo: [Diaconato]
-Texto: [# Diaconato
+É fazer com que, através dele, **vidas sejam alcançadas e o Evangelho seja pregado.**
+
+Titulo: Diaconato
+Texto: # Diaconato
 
 ## Servindo nos bastidores para cuidar de pessoas
 
@@ -408,9 +410,10 @@ Por isso, o Diaconato é tão importante.
 
 **Eles servem nos bastidores para que a igreja possa cuidar das pessoas naquilo que todos conseguem ver.**
 
-E, muitas vezes, uma simples recepção feita com amor pode ser o primeiro passo para transformar o dia — e até a história — de alguém.];
-Titulo: [Lagoinha Kids]
-Texto: [# Lagoinha Kids
+E, muitas vezes, uma simples recepção feita com amor pode ser o primeiro passo para transformar o dia — e até a história — de alguém.
+
+Titulo: Lagoinha Kids
+Texto: # Lagoinha Kids
 
 ## Um culto para crianças, não apenas uma sala para crianças
 
@@ -626,4 +629,4 @@ Por isso, cada aula, cada oração, cada música, cada abraço e cada momento de
 Ensinar.  
 Adorar.  
 Pastorear.  
-Formar uma geração que conhece e ama a Deus.**];
+Formar uma geração que conhece e ama a Deus.**
