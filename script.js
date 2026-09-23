@@ -136,17 +136,18 @@ async function loadMinisterios() {
         const response = await fetch('ministerios.txt');
         if (response.ok) {
             const text = await response.text();
-            const rawMins = text.split(';');
+            
+            // Separa cada bloco que inicia com Titulo: (evita quebrar no ';' do texto)
+            const rawMins = text.split(/(?=Titulo:)/);
             let htmlContent = '';
 
             rawMins.forEach(min => {
                 if(min.trim() && min.includes('Titulo:')) {
-                    const tituloMatch = min.match(/Titulo:\s*(.+)/);
-                    const textoMatch = min.match(/Texto:\s*([\s\S]+)/);
+                    // Extrai os campos e ignora colchetes caso você ainda os use
+                    const tituloMatch = min.match(/Titulo:\s*\[?([^\]\r\n]+)\]?/);
+                    const textoMatch = min.match(/Texto:\s*\[?([\s\S]+)/);                      if (tituloMatch && textoMatch) {                         const titulo = tituloMatch[1].trim();                                                  // Limpa "];" ou "]" do final do texto, caso existam                         let rawTexto = textoMatch[1].trim();                         rawTexto = rawTexto.replace(/\]\s*;\s*$/, '').replace(/\]$/, '').trim();
 
-                    if (tituloMatch && textoMatch) {
-                        const titulo = tituloMatch[1].trim();
-                        const texto = marked.parse(textoMatch[1].trim());
+                        const texto = marked.parse(rawTexto);
 
                         htmlContent += `
                             <div class="ministerio-acc" onclick="toggleAccordion(this)">
