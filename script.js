@@ -16,21 +16,29 @@ cardsWrapper.addEventListener('scroll', () => {
     });
 });
 
-// Lógica de Modais
+// Lógica de Modais com Correção de Gatilho
 function openModal(modalId) {
     document.getElementById('modal-overlay').classList.add('active');
     document.querySelectorAll('.modal-content').forEach(m => m.classList.remove('active'));
-    document.getElementById(modalId).classList.add('active');
+    
+    const targetModal = document.getElementById(modalId);
+    targetModal.classList.add('active');
 
-    // Gatilhos de carregamento sob demanda
-    if (modalId === 'modal-comece' && !document.getElementById('content-comece').innerHTML.trim()) {
+    // Usando data-loaded em vez de innerHTML para evitar bloqueio por espaços vazios ou comentários
+    if (modalId === 'modal-comece' && !targetModal.dataset.loaded) {
+        console.log("Iniciando carregamento: Comece Aqui");
         loadComeceAqui();
+        targetModal.dataset.loaded = "true";
     }
-    if (modalId === 'modal-cursos' && document.getElementById('cursos-container').innerHTML.trim() === '') {
+    if (modalId === 'modal-cursos' && !targetModal.dataset.loaded) {
+        console.log("Iniciando carregamento: Cursos");
         loadCursos();
+        targetModal.dataset.loaded = "true";
     }
-    if (modalId === 'modal-ministerios' && document.getElementById('ministerios-container').innerHTML.trim() === '') {
+    if (modalId === 'modal-ministerios' && !targetModal.dataset.loaded) {
+        console.log("Iniciando carregamento: Ministérios");
         loadMinisterios();
+        targetModal.dataset.loaded = "true";
     }
 }
 
@@ -46,19 +54,33 @@ function closeAllModals(event) {
     }
 }
 
-// Carregamento de Arquivos de Texto (GitHub Pages Fetch)
+// Trava de Segurança para biblioteca Marked
+function checkMarked() {
+    if (typeof marked === 'undefined') {
+        console.error("ERRO CRÍTICO: A biblioteca 'marked' não está carregada no HTML.");
+        return false;
+    }
+    return true;
+}
+
+// Carregamento de Arquivos de Texto
 async function loadComeceAqui() {
+    const container = document.getElementById('content-comece');
     try {
         const response = await fetch('comeceAqui.txt');
         if (response.ok) {
             const text = await response.text();
-            // marked.js transforma o markdown em html com as classes corretas do css
-            document.getElementById('content-comece').innerHTML = marked.parse(text);
+            if (checkMarked()) {
+                container.innerHTML = marked.parse(text);
+                console.log("Sucesso: comeceAqui.txt processado e renderizado.");
+            } else {
+                container.innerHTML = '<p class="text-white" style="text-align:center;">Erro técnico: Biblioteca de formatação (marked) ausente.</p>';
+            }
         } else {
-            document.getElementById('content-comece').innerHTML = '<p class="text-white">Conteúdo não encontrado.</p>';
+            container.innerHTML = `<p class="text-white" style="text-align:center;">Arquivo não encontrado. (Erro ${response.status})</p>`;
         }
     } catch (e) {
-        console.error("Erro ao carregar comeceAqui.txt", e);
+        console.error("Falha fatal no fetch do comeceAqui.txt. Testando sem servidor local?", e);
     }
 }
 
@@ -74,17 +96,17 @@ async function loadCursos() {
                 return;
             }
 
-            // Separa cada bloco que inicia com #Nome: (evita o problema com ';' no markdown)
+            if (!checkMarked()) return;
+
             const rawCursos = text.split(/(?=#Nome:)/);
             let htmlContent = '';
 
             rawCursos.forEach(curso => {
                 if(curso.trim() && curso.includes('#Nome:')) {
-                    // Extrai os campos removendo colchetes [ ] adicionais se existirem
                     const nomeMatch = curso.match(/#Nome:\s*\[?([^\]\r\n]+)\]?/);
                     const iconeMatch = curso.match(/Icone:\s*\[?([^\]\r\n]+)\]?/);
                     const linkMatch = curso.match(/Link:\s*\[?([^\]\r\n]+)\]?/);
-                    const descMatch = curso.match(/Desc:\s*\[?([\s\S]+)/);                                          if (nomeMatch && descMatch) {                         const nome = nomeMatch[1].trim();                         const icone = iconeMatch ? iconeMatch[1].trim() : '';                         const link = linkMatch ? linkMatch[1].trim() : '#';                                                  // Limpa o fecho da descrição se houver "];" ou "]" no final do bloco                         let rawDesc = descMatch[1].trim();                         rawDesc = rawDesc.replace(/\]\s*;\s*$/, '').replace(/\]$/, '').trim();
+                    const descMatch = curso.match(/Desc:\s*\[?([\s\S]+)/);                                          if (nomeMatch && descMatch) {                         const nome = nomeMatch[1].trim();                         const icone = iconeMatch ? iconeMatch[1].trim() : '';                         const link = linkMatch ? linkMatch[1].trim() : '#';                                                  let rawDesc = descMatch[1].trim();                         rawDesc = rawDesc.replace(/\]\s*;\s*$/, '').replace(/\]$/, '').trim();
 
                         const desc = marked.parse(rawDesc);
                         const safeDesc = encodeURIComponent(desc);
@@ -110,12 +132,12 @@ async function loadCursos() {
             }
 
             container.innerHTML = htmlContent;
-
+            console.log("Sucesso: cursos.txt processado e renderizado.");
         } else {
-            container.innerHTML = '<p class="text-white">Nenhum curso disponível no momento...</p>';
+            container.innerHTML = `<p class="text-white" style="text-align:center;">Cursos indisponíveis. (Erro ${response.status})</p>`;
         }
     } catch (e) {
-        console.error("Erro ao carregar cursos.txt", e);
+        console.error("Falha fatal no fetch do cursos.txt:", e);
     }
 }
 
@@ -137,15 +159,15 @@ async function loadMinisterios() {
         if (response.ok) {
             const text = await response.text();
             
-            // Separa cada bloco que inicia com Titulo: (evita quebrar no ';' do texto)
+            if (!checkMarked()) return;
+
             const rawMins = text.split(/(?=Titulo:)/);
             let htmlContent = '';
 
             rawMins.forEach(min => {
                 if(min.trim() && min.includes('Titulo:')) {
-                    // Extrai os campos e ignora colchetes caso você ainda os use
                     const tituloMatch = min.match(/Titulo:\s*\[?([^\]\r\n]+)\]?/);
-                    const textoMatch = min.match(/Texto:\s*\[?([\s\S]+)/);                                          if (tituloMatch && textoMatch) {                         const titulo = tituloMatch[1].trim();                                                  // Limpa "];" ou "]" do final do texto, caso existam                         let rawTexto = textoMatch[1].trim();                         rawTexto = rawTexto.replace(/\]\s*;\s*$/, '').replace(/\]$/, '').trim();
+                    const textoMatch = min.match(/Texto:\s*\[?([\s\S]+)/);                                          if (tituloMatch && textoMatch) {                         const titulo = tituloMatch[1].trim();                                                  let rawTexto = textoMatch[1].trim();                         rawTexto = rawTexto.replace(/\]\s*;\s*$/, '').replace(/\]$/, '').trim();
 
                         const texto = marked.parse(rawTexto);
 
@@ -165,21 +187,20 @@ async function loadMinisterios() {
             });
 
             container.innerHTML = htmlContent;
+            console.log("Sucesso: ministerios.txt processado e renderizado.");
         } else {
-             container.innerHTML = '<p class="text-white">Nenhum ministério encontrado.</p>';
+             container.innerHTML = `<p class="text-white" style="text-align:center;">Nenhum ministério encontrado. (Erro ${response.status})</p>`;
         }
     } catch (e) {
-         console.error("Erro ao carregar ministerios.txt", e);
+         console.error("Falha fatal no fetch do ministerios.txt:", e);
     }
 }
 
 // Lógica do Acordeão de Ministérios
 function toggleAccordion(element) {
-    // Fecha os outros se quiser que apenas um fique aberto por vez
     const allAccs = document.querySelectorAll('.ministerio-acc');
     allAccs.forEach(acc => {
         if(acc !== element) acc.classList.remove('open');
     });
-
     element.classList.toggle('open');
 }
