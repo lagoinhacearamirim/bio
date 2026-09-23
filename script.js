@@ -74,23 +74,19 @@ async function loadCursos() {
                 return;
             }
 
-            const rawCursos = text.split(';');
+            // Separa cada bloco que inicia com #Nome: (evita o problema com ';' no markdown)
+            const rawCursos = text.split(/(?=#Nome:)/);
             let htmlContent = '';
 
             rawCursos.forEach(curso => {
                 if(curso.trim() && curso.includes('#Nome:')) {
-                    const nomeMatch = curso.match(/#Nome:\s*(.+)/);
-                    const iconeMatch = curso.match(/Icone:\s*(.+)/);
-                    const linkMatch = curso.match(/Link:\s*(.+)/);
-                    const descMatch = curso.match(/Desc:\s*([\s\S]+)/);
+                    // Extrai os campos removendo colchetes [ ] adicionais se existirem
+                    const nomeMatch = curso.match(/#Nome:\s*\[?([^\]\r\n]+)\]?/);
+                    const iconeMatch = curso.match(/Icone:\s*\[?([^\]\r\n]+)\]?/);
+                    const linkMatch = curso.match(/Link:\s*\[?([^\]\r\n]+)\]?/);
+                    const descMatch = curso.match(/Desc:\s*\[?([\s\S]+)/);                      if (nomeMatch && descMatch) {                         const nome = nomeMatch[1].trim();                         const icone = iconeMatch ? iconeMatch[1].trim() : '';                         const link = linkMatch ? linkMatch[1].trim() : '#';                                                  // Limpa o fecho da descrição se houver "];" ou "]" no final do bloco                         let rawDesc = descMatch[1].trim();                         rawDesc = rawDesc.replace(/\]\s*;\s*$/, '').replace(/\]$/, '').trim();
 
-                    if (nomeMatch && descMatch) {
-                        const nome = nomeMatch[1].trim();
-                        const icone = iconeMatch ? iconeMatch[1].trim() : '';
-                        const link = linkMatch ? linkMatch[1].trim() : '#';
-                        const desc = marked.parse(descMatch[1].trim());
-
-                        // Codifica a descrição para passar no data-attribute
+                        const desc = marked.parse(rawDesc);
                         const safeDesc = encodeURIComponent(desc);
 
                         htmlContent += `
@@ -102,7 +98,7 @@ async function loadCursos() {
                                  onmouseleave="hideCursoTooltip()">
                                 ${icone ? `<img src="${icone}" alt="${nome}">` : '<i class="fa-solid fa-certificate" style="font-size:40px; color:#412838; margin-bottom:10px;"></i>'}
                                 <h4>${nome}</h4>
-                                <a href="${link}" class="curso-btn">INSCREVA-SE</a>
+                                <a href="${link}" target="_blank" class="curso-btn">INSCREVA-SE</a>
                             </div>
                         `;
                     }
@@ -110,7 +106,7 @@ async function loadCursos() {
             });
 
             if (text.includes('Não há outros cursos disponíveis...')) {
-                htmlContent += '<p style="color: rgba(255,255,255,0.5); text-align:center; font-size: 0.8rem; margin-top: 10px;">Não há outros cursos disponíveis...</p>';
+                htmlContent += '<p style="color: rgba(255,255,255,0.8); text-align:center; font-size: 0.85rem; margin-top: 20px;">Não há outros cursos disponíveis...</p>';
             }
 
             container.innerHTML = htmlContent;
