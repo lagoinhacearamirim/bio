@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lagoinha Ceará-Mirim</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome para os ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Marked.js para renderizar Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Google Fonts Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="lagoinhalogo.png" alt="Logo Lagoinha" id="logo-img">
+        </div>
+        <h1 class="title-lagoinha">LAGOINHA</h1>
+        <h2 class="subtitle-cidade">CEARÁ-MIRIM</h2>
+    </header>
+
+    <main class="slider-container">
+        <div class="cards-wrapper" id="cards-wrapper">
+            <!-- Cards -->
+            <div class="card" onclick="openModal('modal-comece')">
+                <i class="fa-solid fa-map-pin"></i>
+                <h3>Comece aqui</h3>
+            </div>
+            <div class="card" onclick="openModal('modal-onde')">
+                <i class="fa-solid fa-map"></i>
+                <h3>Onde estamos</h3>
+            </div>
+            <div class="card" onclick="openModal('modal-fale')">
+                <i class="fa-solid fa-phone"></i>
+                <h3>Fale conosco</h3>
+            </div>
+            <div class="card" onclick="openModal('modal-cursos')">
+                <i class="fa-solid fa-certificate"></i>
+                <h3>Cursos</h3>
+            </div>
+            <div class="card" onclick="openModal('modal-dizimos')">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+                <h3>Dízimos e ofertas</h3>
+            </div>
+            <div class="card" onclick="openModal('modal-ministerios')">
+                <i class="fa-solid fa-puzzle-piece"></i>
+                <h3>Ministérios</h3>
+            </div>
+            <div class="card" onclick="openModal('modal-celulas')">
+                <i class="fa-solid fa-users"></i>
+                <h3>Células</h3>
+            </div>
+        </div>
+        <div class="pagination">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </main>
+
+    <!-- Modais -->
+    <div class="modal-overlay" id="modal-overlay" onclick="closeAllModals(event)">
+        
+        <!-- Modal: Comece aqui -->
+        <div class="modal-content" id="modal-comece">
+            <button class="close-btn" onclick="closeModal('modal-comece')"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-body custom-scrollbar" id="content-comece">
+                <!-- Conteúdo carregado via fetch -->
+            </div>
+            <button class="btn-pulse">Bem-vindo ao novo</button>
+        </div>
+
+        <!-- Modal: Onde estamos -->
+        <div class="modal-content" id="modal-onde">
+            <button class="close-btn" onclick="closeModal('modal-onde')"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-body">
+                <p class="text-bold-white">Nosso templo está localizado na Rua General João Varela, 1007, Centro - Ceará-Mirim/RN. Aguardamos a sua visita!</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d3970.61225573435!2d-35.4262!3d-5.6322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzcnNTUuOSJTIDM1wrAyNSczNC4zIlc!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="250" style="border:0; border-radius: 10px; margin-top: 15px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <!-- Modal: Fale conosco -->
+        <div class="modal-content" id="modal-fale">
+            <button class="close-btn" onclick="closeModal('modal-fale')"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-body">
+                <p class="text-bold-white">Contate-nos para tirar dúvidas, pedir oração ou o que mais for necessário.</p>
+                <a href="https://wa.me/5584994403957" target="_blank" class="wpp-btn">
+                    <div class="wpp-btn-top">
+                        <span>Abrir</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </div>
+                    <div class="wpp-btn-main">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Modal: Cursos -->
+        <div class="modal-content" id="modal-cursos">
+            <button class="close-btn" onclick="closeModal('modal-cursos')"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-body custom-scrollbar">
+                <p class="text-white">A igreja batista da Lagoinha oferece periodicamente diversos cursos para Homens, Mulheres, Adolescentes, Casais, etc. Veja abaixo os cursos com inscrições abertas no momento.</p>
+                <div id="cursos-container" class="cursos-grid">
+                    <!-- Cards carregados via fetch -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal: Dízimos -->
+        <div class="modal-content" id="modal-dizimos">
+            <button class="close-btn" onclick="closeModal('modal-dizimos')"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-body">
+                <p class="text-white">Sinta-se livre para ofertar ou dizimar conforme você já resolveu em seu coração, fazendo-o com gratidão e amor ao Senhor, e não por obrigação. Pois o Senhor ama a quem dá com alegria.</p>
+                <p class="text-bold-white" style="margin: 15px 0;">Chave pix: lagoinhacearamirim@gmail.com</p>
+                <img src="qrcodepix.png" alt="QR Code Pix" class="pix-img">
+            </div>
+        </div>
+
+        <!-- Modal: Ministérios -->
+        <div class="modal-content" id="modal-ministerios">
+            <button class="close-btn" onclick="closeModal('modal-ministerios')"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-body custom-scrollbar">
+                <h2 class="text-bold-white" style="font-size: 1.2rem; margin-bottom: 20px;">"Grandes para servir, pequenos para se importar"</h2>
+                <div id="ministerios-container">
+                    <!-- Acordeões carregados via fetch -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal: Células -->
+        <div class="modal-content" id="modal-celulas">
+            <button class="close-btn" onclick="closeModal('modal-celulas')"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-body">
+                <p class="text-white" style="font-weight: 400;">Na lagoinha chamamos as células de GC's, Grupos de Crescimento, porque o nosso objetivo não é apenas estudar a palavra do Senhor juntos, mas crescer juntos na graça, no conhecimento e em comunhão numa comunidade de fé saudável que se ajuda e se apoia.</p>
+                <p class="text-white" style="font-weight: 400; margin-top: 15px;">Que tal buscar um GC perto de você para visitar em breve?</p>
+                <a href="LINK_dos_GCS_AQUI" class="btn-external">
+                    Buscar GC's perto de mim <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Balão de tooltip dos cursos -->
+    <div id="curso-tooltip" class="curso-tooltip"></div>
+    <script src="script.js"></script>
+</body>
+</html>
