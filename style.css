@@ -403,7 +403,7 @@ body {
 
 .ministerio-acc.open .acc-body {
     padding: 15px;
-    max-height: 500px; /* valor arbitrário alto para a transição */
+    max-height: 5000px; /* valor arbitrário alto para a transição */
 }
 
 .ministerio-acc.open .acc-header i {
