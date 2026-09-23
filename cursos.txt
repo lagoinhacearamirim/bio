@@ -1,60 +1,86 @@
-#Nome:[Bem-casados]
-Icone:[https://cdn-icons-png.flaticon.com/512/685/685322.png]
-Link: [https://englishjourney.github.io/game]
-Desc: [# Bem Casados
+#Nome: Start
+Icone: https://static.thenounproject.com/png/4617835-200.png
+Link: https://docs.google.com/forms/d/e/1FAIpQLScXz_L6H1fcqrd6XuPxTx5GusNRqae5vR_6XnRc8TSNLzXqjg/viewform
+Desc:# Curso Start
 
-## Um curso para fortalecer o casamento
+## O primeiro passo para começar essa caminhada
 
-O **Bem Casados** é um curso voltado para **casais que desejam fortalecer sua vida conjugal**, compreender melhor o propósito de Deus para o casamento e desenvolver uma relação mais saudável, madura e baseada em princípios cristãos.
+O **Curso Start** é um curso essencial para quem está chegando agora à igreja e deseja conhecer melhor a nossa comunidade, nossa fé e a maneira como vivemos a vida cristã.
 
-Durante o curso, os casais são convidados a refletir sobre diferentes aspectos da vida a dois, entendendo que o casamento envolve muito mais do que sentimentos: envolve **compromisso, responsabilidade, diálogo, cuidado, parceria e propósito**.
-
----
-
-## O propósito de Deus para o casamento
-
-O casamento, dentro da perspectiva cristã, é uma aliança entre duas pessoas que decidem construir uma vida juntas diante de Deus.
-
-Por isso, o Bem Casados busca ajudar os casais a compreender que o casamento não deve ser baseado apenas nas circunstâncias ou nos sentimentos do momento, mas em uma decisão diária de **amar, cuidar, respeitar, perdoar e caminhar juntos**.
-
-O propósito é que marido e esposa cresçam juntos, apoiando um ao outro e construindo uma família fundamentada em Deus.
+Ele foi pensado para ajudar cada pessoa a **entender onde está chegando, conhecer nossa visão e nossos valores e dar os primeiros passos em sua caminhada com Deus**.
 
 ---
 
-## Temas abordados
+## Para quem está chegando de outra igreja
 
-Durante o curso, diferentes áreas da vida conjugal são trabalhadas, como:
+Se você já fazia parte de outra igreja, o Start é uma oportunidade de **relembrar verdades fundamentais da fé cristã** e, ao mesmo tempo, conhecer melhor a nossa igreja.
 
-- **Comunicação:** aprender a conversar, ouvir e expressar sentimentos e necessidades de maneira saudável;
-- **Finanças:** compreender como organizar a vida financeira do casal, estabelecer prioridades e tomar decisões juntos;
-- **Vida conjugal:** desenvolver uma relação baseada em amor, respeito, companheirismo e compromisso;
-- **Papéis dos cônjuges:** refletir sobre as responsabilidades de marido e esposa dentro do casamento;
-- **Conflitos:** aprender a lidar com diferenças e resolver problemas sem permitir que eles destruam a relação;
-- **Família:** compreender como construir um ambiente familiar saudável;
-- **Vida espiritual:** fortalecer a caminhada do casal com Deus e desenvolver uma fé vivida em conjunto.
+Durante o curso, você poderá conhecer mais sobre:
 
----
+- **A doutrina da igreja;**
+- **Nossa liturgia e a forma como celebramos;**
+- **Nossa visão e nossos valores;**
+- A maneira como entendemos a vida em comunidade;
+- O propósito dos diferentes ministérios;
+- Como podemos crescer e servir dentro da igreja.
 
-## Marido e esposa: parceiros na caminhada
-
-O casamento não deve ser encarado como uma competição entre marido e esposa, mas como uma **parceria**.
-
-Cada cônjuge possui responsabilidades, características e dons diferentes, mas ambos são importantes para a construção da família.
-
-O objetivo é que marido e esposa aprendam a **servir, apoiar, respeitar e cuidar um do outro**, buscando tomar decisões juntos e enfrentar os desafios da vida como uma equipe.
+Assim, mesmo que você já tenha uma caminhada cristã, o Start ajuda a compreender **como essa nova comunidade vive e expressa a fé**.
 
 ---
 
-## Muito além de um curso
+## Para quem é um novo convertido
 
-O **Bem Casados** não é apenas uma sequência de aulas sobre casamento.
+Para quem está começando agora sua caminhada com Cristo, o Start possui um papel ainda mais importante.
 
-É uma oportunidade para o casal **parar, conversar, refletir e olhar novamente para a própria relação**.
+Além de apresentar a **doutrina, a liturgia e a visão da igreja**, o curso ajuda a estabelecer os primeiros fundamentos da vida cristã.
 
-Em meio à rotina, ao trabalho, aos filhos, às responsabilidades e às dificuldades do dia a dia, o curso cria um espaço para que o casal possa cuidar de algo fundamental: **o próprio casamento**.
+É um momento para aprender, tirar dúvidas, conhecer melhor o Evangelho e começar a desenvolver uma caminhada de fé acompanhada pela igreja.
 
-> **Um casamento saudável não acontece por acaso. Ele é construído todos os dias.**
+O processo também ajuda a preparar o **discipulado**, criando uma base para que o novo convertido continue crescendo depois do curso.
 
-O Bem Casados busca ajudar cada casal a fortalecer essa construção, colocando **Deus, amor, compromisso, comunicação e cuidado** no centro da vida conjugal.];
+---
 
-Não há outros cursos disponíveis...
+## Preparação para o batismo
+
+Para o novo convertido, o Start também faz parte da preparação para o **batismo**.
+
+O batismo é um momento importante na caminhada cristã e, por isso, queremos que a pessoa compreenda o significado dessa decisão e tenha clareza sobre aquilo que está professando publicamente.
+
+O curso proporciona um espaço para conhecer melhor os fundamentos da fé e compreender o significado de **seguir a Cristo e fazer parte da comunidade da Igreja**.
+
+---
+
+## Mais do que conhecer a igreja
+
+O Start não existe simplesmente para apresentar regras, departamentos ou atividades.
+
+Seu propósito é ajudar cada pessoa a **entender a família da qual está começando a fazer parte**.
+
+Queremos que quem chega consiga compreender:
+
+> **No que cremos.**  
+> **Como vivemos.**  
+> **Por que fazemos o que fazemos.**  
+> **Como podemos crescer.**  
+> **Como podemos servir.**
+
+---
+
+## Um começo para uma nova caminhada
+
+O nome **Start** representa exatamente essa ideia: um **começo**.
+
+Para alguns, será o começo de uma nova fase em uma igreja diferente.
+
+Para outros, será o começo de uma caminhada de fé com Jesus.
+
+E para aqueles que já caminham com Cristo, pode ser um novo começo em uma comunidade onde poderão **crescer, servir, fazer parte e construir relacionamentos**.
+
+O Start é apenas o começo de uma caminhada que continua através do **discipulado, dos Grupos de Crescimento (GCs), dos cultos e dos diferentes ministérios da igreja**.
+
+#Nome: Teste
+Icone: https://static.thenounproject.com/png/4617835-200.png
+Link: https://docs.google.com/forms/d/e/1FAIpQLScXz_L6H1fcqrd6XuPxTx5GusNRqae5vR_6XnRc8TSNLzXqjg/viewform
+Desc:# Curso Teste
+
+> **Chegar é apenas o primeiro passo. Crescer, pertencer e servir fazem parte da caminhada.**
