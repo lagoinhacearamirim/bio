@@ -133,23 +133,27 @@ body {
     padding: 0 10px;
 }
 
-/* PAGINATION */
-.pagination {
-    display: flex;
-    gap: 8px;
-    margin-top: 10px;
+/* BARRA DE PROGRESSO DO SLIDER */
+.scroll-track {
+    width: 180px;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    margin-top: 15px;
+    position: relative;
 }
 
-.dot {
-    width: 10px;
-    height: 10px;
-    background-color: rgba(255, 255, 255, 0.4);
+.scroll-thumb {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-color: #ffffff;
     border-radius: 50%;
-    transition: background-color 0.3s;
-}
-
-.dot.active {
-    background-color: white;
+    transform: translateY(-50%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    will-change: left;
 }
 
 /* MODAIS */
