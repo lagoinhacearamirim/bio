@@ -1,17 +1,18 @@
-// Lógica de Paginação do Slider
 const cardsWrapper = document.getElementById('cards-wrapper');
-const dots = document.querySelectorAll('.dot');
+const scrollThumb = document.getElementById('scroll-thumb');
 
-cardsWrapper.addEventListener('scroll', () => {
-    const scrollLeft = cardsWrapper.scrollLeft;
-    const cardWidth = cardsWrapper.clientWidth;
-    const activeIndex = Math.round(scrollLeft / cardWidth);
-    
-    dots.forEach((dot, index) => {
-        if (index === activeIndex) {
-            dot.classList.add('active');
-        } else {
-            dot.classList.remove('active');
+if (cardsWrapper && scrollThumb) {
+    cardsWrapper.addEventListener('scroll', () => {
+        const maxScrollLeft = cardsWrapper.scrollWidth - cardsWrapper.clientWidth;
+        
+        if (maxScrollLeft > 0) {
+            const scrollPercent = cardsWrapper.scrollLeft / maxScrollLeft;
+            const trackWidth = scrollThumb.parentElement.clientWidth;
+            const thumbWidth = scrollThumb.clientWidth;
+            
+            // Calcula o deslocamento máximo que a bolinha pode fazer dentro da barra
+            const maxThumbMove = trackWidth - thumbWidth;
+            scrollThumb.style.left = `${scrollPercent * maxThumbMove}px`;
         }
     });
 });
