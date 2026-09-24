@@ -107,7 +107,7 @@ async function loadCursos() {
                     const nomeMatch = curso.match(/#Nome:\s*\[?([^\]\r\n]+)\]?/);
                     const iconeMatch = curso.match(/Icone:\s*\[?([^\]\r\n]+)\]?/);
                     const linkMatch = curso.match(/Link:\s*\[?([^\]\r\n]+)\]?/);
-                    const descMatch = curso.match(/Desc:\s*\[?([\s\S]+)/);                                         if (nomeMatch && descMatch) {                         const nome = nomeMatch[1].trim();                         const icone = iconeMatch ? iconeMatch[1].trim() : '';                         const link = linkMatch ? linkMatch[1].trim() : '#';                                                let rawDesc = descMatch[1].trim();                         rawDesc = rawDesc.replace(/\]\s*;\s*$/, '').replace(/\]$/, '').trim();
+                    const descMatch = curso.match(/Desc:\s*\[?([\s\S]+)/);                                          if (nomeMatch && descMatch) {                         const nome = nomeMatch[1].trim();                         const icone = iconeMatch ? iconeMatch[1].trim() : '';                         const link = linkMatch ? linkMatch[1].trim() : '#';                                                  let rawDesc = descMatch[1].trim();                         rawDesc = rawDesc.replace(/\]\s*;\s*$/, '').replace(/\]$/, '').trim();
 
                         const desc = marked.parse(rawDesc);
                         const safeDesc = encodeURIComponent(desc);
@@ -168,7 +168,7 @@ async function loadMinisterios() {
             rawMins.forEach(min => {
                 if(min.trim() && min.includes('Titulo:')) {
                     const tituloMatch = min.match(/Titulo:\s*\[?([^\]\r\n]+)\]?/);
-                    const textoMatch = min.match(/Texto:\s*\[?([\s\S]+)/);                                         if (tituloMatch && textoMatch) {                         const titulo = tituloMatch[1].trim();                                                let rawTexto = textoMatch[1].trim();                         rawTexto = rawTexto.replace(/\]\s*;\s*$/, '').replace(/\]$/, '').trim();
+                    const textoMatch = min.match(/Texto:\s*\[?([\s\S]+)/);                                          if (tituloMatch && textoMatch) {                         const titulo = tituloMatch[1].trim();                         let rawTexto = textoMatch[1].trim();                         rawTexto = rawTexto.replace(/\]\s*;\s*$/, '').replace(/\]$/, '').trim();
 
                         const texto = marked.parse(rawTexto);
 
