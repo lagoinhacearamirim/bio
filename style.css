@@ -372,52 +372,6 @@ body {
     overflow-y: auto;
 }
 
-/* ACORDEÃO MINISTÉRIOS */
-.ministerio-acc {
-    background-color: var(--wpp-bg);
-    border-radius: 10px;
-    margin-bottom: 10px;
-    overflow: hidden;
-}
-
-.acc-header {
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-}
-
-.acc-header h4 {
-    color: var(--card-color);
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    font-size: 1rem;
-}
-
-.acc-header i {
-    color: var(--ministry-arrow);
-    transition: transform 0.3s;
-}
-
-.acc-body {
-    padding: 0 15px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out, padding 0.3s;
-    color: var(--close-btn);
-    font-size: 0.9rem;
-}
-
-.ministerio-acc.open .acc-body {
-    padding: 15px;
-    max-height: 5000px; /* valor arbitrário alto para a transição */
-}
-
-.ministerio-acc.open .acc-header i {
-    transform: rotate(90deg);
-}
-
 .pix-img {
     width: 100%;
     max-width: 250px;
