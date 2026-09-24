@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar GC's - Lagoinha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- LOADER -->
+    <div id="loader-overlay" class="loader-overlay" style="display: none;">
+        <div class="loader-wrapper">
+            <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGczM2ZyaXMyaXo3c3Z4M2I3Z3pxMGUyd21uanE3Ym5lb2NlenBpayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vrHepZHufSd2UP8BGs/giphy.gif" alt="Lagoinha" class="loader-logo">
+            <img src="https://cdn.pixabay.com/animation/2023/05/02/04/29/04-29-06-428_512.gif" alt="Loading" class="loader-spinner">
+        </div>
+    </div>
+
+    <header class="header">
+        <h1>BUSCAR GC'S</h1>
+    </header>
+
+    <main class="container">
+        <div class="search-bar">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="search-input" placeholder="Digite o nome do GC ou bairro..." oninput="filterGCs()">
+        </div>
+
+        <!-- Lista de GCs -->
+        <div class="gc-list-container" id="gc-list-container">
+            <!-- GCs injetados via JS -->
+        </div>
+    </main>
+
+    <!-- MODAL: Visualizar GC -->
+    <div id="modal-view-gc" class="modal-overlay" onclick="closeAllModals(event)">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal-view-gc')"><i class="fa-solid fa-xmark"></i></button>
+            <h2 id="view-gc-name">Nome do GC</h2>
+            <div class="view-info">
+                <p><strong>Bairro:</strong> <span id="view-gc-bairro"></span></p>
+                <p><strong>Encontros:</strong> <span id="view-gc-diahora"></span></p>
+                <p><strong>Líder(es):</strong> <span id="view-gc-lider"></span></p>
+            </div>
+            <a href="#" id="btn-contatar-lider" target="_blank" class="btn-action">Contatar líder</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
