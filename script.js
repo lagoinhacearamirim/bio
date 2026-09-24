@@ -36,11 +36,7 @@ function openModal(modalId) {
         loadCursos();
         targetModal.dataset.loaded = "true";
     }
-    if (modalId === 'modal-ministerios' && !targetModal.dataset.loaded) {
-        console.log("Iniciando carregamento: Ministérios");
-        loadMinisterios();
-        targetModal.dataset.loaded = "true";
-    }
+    
 }
 
 function closeModal(modalId) {
@@ -153,49 +149,6 @@ function hideCursoTooltip() {
     tooltip.style.display = 'none';
 }
 
-async function loadMinisterios() {
-    const container = document.getElementById('ministerios-container');
-    try {
-        const response = await fetch('ministerios.txt');
-        if (response.ok) {
-            const text = await response.text();
-            
-            if (!checkMarked()) return;
-
-            const rawMins = text.split(/(?=Titulo:)/);
-            let htmlContent = '';
-
-            rawMins.forEach(min => {
-                if(min.trim() && min.includes('Titulo:')) {
-                    const tituloMatch = min.match(/Titulo:\s*\[?([^\]\r\n]+)\]?/);
-                    const textoMatch = min.match(/Texto:\s*\[?([\s\S]+)/);                                          if (tituloMatch && textoMatch) {                         const titulo = tituloMatch[1].trim();                         let rawTexto = textoMatch[1].trim();                         rawTexto = rawTexto.replace(/\]\s*;\s*$/, '').replace(/\]$/, '').trim();
-
-                        const texto = marked.parse(rawTexto);
-
-                        htmlContent += `
-                            <div class="ministerio-acc" onclick="toggleAccordion(this)">
-                                <div class="acc-header">
-                                    <h4>${titulo}</h4>
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </div>
-                                <div class="acc-body">
-                                    ${texto}
-                                </div>
-                            </div>
-                        `;
-                    }
-                }
-            });
-
-            container.innerHTML = htmlContent;
-            console.log("Sucesso: ministerios.txt processado e renderizado.");
-        } else {
-             container.innerHTML = `<p class="text-white" style="text-align:center;">Nenhum ministério encontrado. (Erro ${response.status})</p>`;
-        }
-    } catch (e) {
-         console.error("Falha fatal no fetch do ministerios.txt:", e);
-    }
-}
 
 // Lógica do Acordeão de Ministérios
 function toggleAccordion(element) {
