@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- LOADER -->
     <div id="loader-overlay" class="loader-overlay" style="display: none;">
         <div class="loader-wrapper">
             <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGczM2ZyaXMyaXo3c3Z4M2I3Z3pxMGUyd21uanE3Ym5lb2NlenBpayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vrHepZHufSd2UP8BGs/giphy.gif" alt="Lagoinha" class="loader-logo">
@@ -27,18 +26,31 @@
             <input type="text" id="search-input" placeholder="Digite o nome do GC ou bairro..." oninput="filterGCs()">
         </div>
 
-        <!-- Lista de GCs -->
-        <div class="gc-list-container" id="gc-list-container">
-            <!-- GCs injetados via JS -->
+        <div class="category-filter">
+            <select id="categoria-select" onchange="filterGCs()">
+                <option value="">Todas as Categorias</option>
+                <option value="Casais">Casais</option>
+                <option value="Homens (até 24 anos)">Homens (até 24 anos)</option>
+                <option value="Mulheres (até 24 anos)">Mulheres (até 24 anos)</option>
+                <option value="Meninos (até 17 anos)">Meninos (até 17 anos)</option>
+                <option value="Meninas (até 17 anos)">Meninas (até 17 anos)</option>
+                <option value="Pré-adolescentes (até 12 anos)">Pré-adolescentes (até 12 anos)</option>
+                <option value="Crianças (até 9 anos)">Crianças (até 9 anos)</option>
+                <option value="Homens (25 anos ou mais)">Homens (25 anos ou mais)</option>
+                <option value="Mulheres (25 anos ou mais)">Mulheres (25 anos ou mais)</option>
+            </select>
         </div>
+
+        <div class="gc-list-container" id="gc-list-container">
+            </div>
     </main>
 
-    <!-- MODAL: Visualizar GC -->
     <div id="modal-view-gc" class="modal-overlay" onclick="closeAllModals(event)">
         <div class="modal-content">
             <button class="close-btn" onclick="closeModal('modal-view-gc')"><i class="fa-solid fa-xmark"></i></button>
             <h2 id="view-gc-name">Nome do GC</h2>
             <div class="view-info">
+                <p><strong>Categoria:</strong> <span id="view-gc-categoria"></span></p>
                 <p><strong>Bairro:</strong> <span id="view-gc-bairro"></span></p>
                 <p><strong>Encontros:</strong> <span id="view-gc-diahora"></span></p>
                 <p><strong>Líder(es):</strong> <span id="view-gc-lider"></span></p>
