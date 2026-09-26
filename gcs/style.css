@@ -69,7 +69,7 @@ body {
 
 .search-bar {
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .search-bar input {
@@ -94,6 +94,22 @@ body {
     transform: translateY(-50%);
     color: #000000;
     font-size: 1.2rem;
+}
+
+.category-filter {
+    margin-bottom: 30px;
+}
+
+.category-filter select {
+    width: 100%;
+    background-color: #d3d1d1;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 15px 15px 20px;
+    font-size: 1rem;
+    color: #363636;
+    outline: none;
+    cursor: pointer;
 }
 
 /* Container de GCs */
