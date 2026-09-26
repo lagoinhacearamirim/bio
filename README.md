@@ -1,4 +1,1 @@
-<h1>PROCURANDO UM GC?</h1>
-<br>
-<h4>No momento nosso sistema ainda não possui todos os GC's cadastrados... Que tal falar conosco para procurar um GC?</h4>
-<p><a href="https://wa.me/5584994403957" target="_blank">Clique aqui</a></p>
+#BIO
