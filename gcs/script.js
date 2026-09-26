@@ -58,10 +58,14 @@ function renderGCList(lista) {
 
 function filterGCs() {
     const termo = document.getElementById('search-input').value.toLowerCase();
-    const filtrados = allGCs.filter(gc => 
-        gc.nomeGC.toLowerCase().includes(termo) || 
-        gc.bairro.toLowerCase().includes(termo)
-    );
+    const categoria = document.getElementById('categoria-select').value;
+    
+    const filtrados = allGCs.filter(gc => {
+        const matchTermo = gc.nomeGC.toLowerCase().includes(termo) || gc.bairro.toLowerCase().includes(termo);
+        const matchCategoria = categoria === "" || gc.categoria === categoria;
+        return matchTermo && matchCategoria;
+    });
+    
     renderGCList(filtrados);
 }
 
@@ -83,6 +87,7 @@ function closeAllModals(event) {
 // Modal Visualizar GC
 function openViewModal(gc) {
     document.getElementById('view-gc-name').innerText = gc.nomeGC;
+    document.getElementById('view-gc-categoria').innerText = gc.categoria || "Não informada";
     document.getElementById('view-gc-bairro').innerText = gc.bairro;
     document.getElementById('view-gc-diahora').innerText = gc.diaHora;
     
