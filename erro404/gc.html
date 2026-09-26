@@ -1,9 +1,59 @@
-<html>
- <head>
-<h1>PROCURANDO UM GC?</h1>
-   </head>
-<body>
-<h4>No momento nosso sistema ainda não possui todos os GC's cadastrados... Que tal falar conosco para procurar um GC?</h4>
-<p><a href="https://wa.me/5584994403957" target="_blank">Clique aqui</a></p>
-  </body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procurando um GC?</title>
+    <!-- Import Google Fonts: Bungee (as a modern stylized fallback for BANANA) and Open Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes pulse-orange {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 15px rgba(249, 115, 22, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+            }
+        }
+
+        .font-banana {
+            font-family: 'Bungee', cursive, sans-serif;
+            letter-spacing: 0.05em;
+        }
+
+        .font-opensans {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .pulsing-btn {
+            animation: pulse-orange 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-[#000000] to-[#1a1a1a] min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-xl w-full bg-neutral-900/60 backdrop-blur-md border border-neutral-800 rounded-2xl p-8 md:p-12 text-center shadow-2xl">
+        <h1 class="font-banana text-3xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-200 mb-6 drop-shadow-lg">
+            PROCURANDO UM GC?
+        </h1>
+        
+        <p class="font-opensans text-neutral-300 text-base md:text-lg mb-8 leading-relaxed">
+            No momento nosso sistema ainda não possui todos os GC's cadastrados... Que tal falar conosco para procurar um GC?
+        </p>
+
+        <div>
+            <a href="https://wa.me/5584994403957" target="_blank" class="inline-block font-opensans font-bold text-white bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 px-8 py-4 rounded-xl shadow-lg transition-all duration-300 pulsing-btn text-lg">
+                Clique aqui
+            </a>
+        </div>
+    </div>
+</body>
 </html>
