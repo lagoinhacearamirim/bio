@@ -10,9 +10,14 @@ if (cardsWrapper && scrollThumb) {
             const trackWidth = scrollThumb.parentElement.clientWidth;
             const thumbWidth = scrollThumb.clientWidth;
             
-            // Calcula o deslocamento máximo que a bolinha pode fazer dentro da barra
-            const maxThumbMove = trackWidth - thumbWidth;
-            scrollThumb.style.left = `${scrollPercent * maxThumbMove}px`;
+            // Valor em pixels para compensar o padding transparente da imagem
+            const offset = 4; // Aumente ou diminua esse valor até o alinhamento ficar perfeito
+            
+            // Aumenta o percurso total somando o offset dos dois lados
+            const maxThumbMove = (trackWidth - thumbWidth) + (offset * 2);
+            
+            // Subtrai o offset inicial para que a imagem comece mais à esquerda
+            scrollThumb.style.left = `${(scrollPercent * maxThumbMove) - offset}px`;
         }
     });
 }
