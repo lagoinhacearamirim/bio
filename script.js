@@ -158,3 +158,22 @@ function toggleAccordion(element) {
     });
     element.classList.toggle('open');
 }
+function copiarPix() {
+    const email = document.getElementById("pix-email").innerText;
+    const btnText = document.getElementById("btn-text");
+    const copyIcon = document.getElementById("copy-icon");
+
+    navigator.clipboard.writeText(email).then(() => {
+        // Altera visualmente para dar feedback ao usuário
+        btnText.innerText = "Copiado!";
+        copyIcon.className = "fa-solid fa-check";
+
+        // Retorna ao estado original após 2 segundos
+        setTimeout(() => {
+            btnText.innerText = "Copiar";
+            copyIcon.className = "fa-regular fa-copy";
+        }, 2000);
+    }).catch(err => {
+        console.error("Erro ao copiar email: ", err);
+    });
+}
