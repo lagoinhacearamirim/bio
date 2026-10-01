@@ -106,13 +106,21 @@
 
         <!-- Modal: Dízimos -->
         <div class="modal-content" id="modal-dizimos">
-            <button class="close-btn" onclick="closeModal('modal-dizimos')"><i class="fa-solid fa-xmark"></i></button>
-            <div class="modal-body">
-                <p class="text-white">Sinta-se livre para ofertar ou dizimar conforme você já resolveu em seu coração, fazendo-o com gratidão e amor ao Senhor, e não por obrigação. Pois o Senhor ama a quem dá com alegria.</p>
-                <p class="text-bold-white" style="margin: 15px 0;">Chave pix: iblagoinhacearamirim@gmail.com</p>
-                <img src="qrcodepix.png" alt="QR Code Pix" class="pix-img">
-            </div>
+    <button class="close-btn" onclick="closeModal('modal-dizimos')"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-body">
+        <p class="text-white">Sinta-se livre para ofertar ou dizimar conforme você já resolveu em seu coração, fazendo-o com gratidão e amor ao Senhor, e não por obrigação. Pois o Senhor ama a quem dá com alegria.</p>
+        
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin: 15px 0; flex-wrap: wrap;">
+            <p class="text-bold-white" style="margin: 0;">Chave pix: <span id="pix-email">iblagoinhacearamirim@gmail.com</span></p>
+            <button class="copy-btn" onclick="copiarPix()" id="btn-copiar" style="cursor: pointer; padding: 5px 10px; border-radius: 5px; border: none; background-color: #ffffff; color: #000; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;">
+                <i class="fa-regular fa-copy" id="copy-icon"></i>
+                <span id="btn-text">Copiar</span>
+            </button>
         </div>
+
+        <img src="qrcodepix.png" alt="QR Code Pix" class="pix-img">
+    </div>
+</div>
 
 
         <!-- Modal: GCs -->
