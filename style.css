@@ -11,13 +11,13 @@
 :root {
     --bg-dark: #000000;
     --bg-light: #575656;
-    --card-color: #CB8400;
-    --modal-bg: #009245;
-    --scroll-pill: #005327;
-    --close-btn: #412838;
+    --card-color: #052EBE;
+    --modal-bg: #DA9728;
+    --scroll-pill: #170405;
+    --close-btn: #170405;
     --wpp-bg: #d1e2c4;
     --wpp-text: #65cf72;
-    --curso-card-bg: #F1EEEE;
+    --curso-card-bg: #F7F2E5;
     --ministry-arrow: #f4976c;
 }
 
