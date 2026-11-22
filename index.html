@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Marked.js para renderizar Markdown -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <!-- Google Fonts Open Sans -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Tipografia da interface -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -19,9 +21,15 @@
         </div>
         <h1 class="title-lagoinha">LAGOINHA</h1>
         <h2 class="subtitle-cidade">CEARÁ-MIRIM</h2>
+        <p class="header-description">Conecte-se, participe e cresça com a nossa comunidade.</p>
     </header>
 
-    <main class="slider-container">
+    <main class="slider-container" aria-label="Acesso rápido">
+        <div class="section-heading">
+            <span class="section-kicker">IGREJA BATISTA DA LAGOINHA</span>
+            <h2>Como podemos caminhar com você?</h2>
+            <p>Encontre informações, conheça nossos ministérios e fique por dentro das oportunidades de participar.</p>
+        </div>
         <div class="cards-wrapper" id="cards-wrapper">
             <!-- Cards -->
             <div class="card" onclick="openModal('modal-comece')">
@@ -49,7 +57,7 @@
                 <h3>GC's</h3>
             </div>
         </div>
-       <div class="scroll-track">
+       <div class="scroll-track" aria-hidden="true">
     <div class="scroll-thumb" id="scroll-thumb"></div>
 </div>
     </main>
