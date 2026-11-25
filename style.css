@@ -821,3 +821,86 @@ body {
     box-shadow: 0 8px 22px rgba(52, 75, 89, 0.10);
 }
 
+
+
+/* EVENTOS FUTUROS */
+.future-events {
+    width: min(100%, 980px);
+    margin: 26px auto 0;
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    background: rgba(255,255,255,.94);
+    box-shadow: var(--shadow);
+}
+.future-events-heading { margin: 0 4px 22px; }
+.events-kicker {
+    display: inline-flex;
+    margin-bottom: 9px;
+    padding: 6px 11px;
+    border-radius: 999px;
+    background: var(--green-soft);
+    color: var(--green-deep);
+    font-size: .69rem;
+    font-weight: 800;
+    letter-spacing: .13em;
+}
+.future-events-heading h2 {
+    color: var(--blue-gray-deep);
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    font-weight: 800;
+    letter-spacing: -.035em;
+}
+.future-events-heading p { margin-top: 7px; color: var(--muted); font-size: .92rem; line-height: 1.55; }
+.future-events-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.future-event-card { min-width: 0; overflow: hidden; border: 1px solid var(--border); border-radius: 21px; background: var(--surface); }
+.shine-event-art {
+    display: grid; min-height: 178px; place-items: center; padding: 20px;
+    background: linear-gradient(145deg,#f9f4fa,#eee5f3);
+}
+.shine-event-art img { display: block; width: min(100%,250px); max-height: 145px; object-fit: contain; }
+.future-event-copy { padding: 21px; }
+.future-event-label { color: var(--muted); font-size: .65rem; font-weight: 800; letter-spacing: .16em; }
+.future-event-copy h3 { margin-top: 6px; color: var(--blue-gray-deep); font: 800 1.35rem 'Manrope',sans-serif; }
+.future-event-copy p { min-height: 46px; margin-top: 8px; color: #64757d; font-size: .88rem; line-height: 1.55; }
+.future-event-button {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; min-height: 48px; margin-top: 17px; padding: 12px 16px;
+    border-radius: 13px; font: 800 .88rem 'DM Sans',sans-serif;
+    text-align: center; text-decoration: none; transition: transform .2s ease,filter .2s ease;
+}
+.future-event-button:hover { transform: translateY(-2px); filter: brightness(1.08); }
+.shine-button { background: #4a2e5d; color: #fff; }
+.acamp-event { border-color: rgba(237,64,56,.25); background: #171816; color: #fffdf8; }
+.acamp-event .future-event-copy h3 { color: #fffdf8; }
+.acamp-event .future-event-copy p { color: rgba(255,253,248,.72); }
+.acamp-event .future-event-label { color: #c3c8a7; }
+.acamp-event-mark {
+    display: flex; min-height: 178px; flex-direction: column; align-items: center;
+    justify-content: center; padding: 22px;
+    background: radial-gradient(circle at 50% 45%,rgba(195,200,167,.16),transparent 58%),#242723;
+    color: #f3f0e8; text-align: center;
+}
+.acamp-mark-top { color: #c3c8a7; font: 700 .58rem 'Helvetica LT Std Condensed',Arial,sans-serif; letter-spacing: .22em; }
+.acamp-event-mark strong { margin: 7px 0 3px; font: 400 clamp(3.5rem,8vw,5rem)/.9 'Modesto Condensed',Impact,'Arial Narrow',sans-serif; letter-spacing: .025em; }
+.acamp-event-mark strong span { color: #ed4038; }
+.acamp-mark-bottom { margin-top: 10px; color: #d9c7a7; font: 700 .57rem 'Helvetica LT Std Condensed',Arial,sans-serif; letter-spacing: .16em; }
+.acamp-button { background: #ed4038; color: #171816; }
+@font-face {
+    font-family: 'Modesto Condensed';
+    src: url('https://lagoinhacearamirim.github.io/legacy/fonts/Modesto%20Condensed.ttf') format('truetype');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Helvetica LT Std Condensed';
+    src: url('https://lagoinhacearamirim.github.io/legacy/fonts/HelveticaLTStd-BoldCond.otf') format('opentype');
+    font-display: swap;
+}
+@media (max-width:720px) {
+    .future-events { margin-top: 17px; padding: 22px 17px; border-radius: 24px; }
+    .future-events-grid { grid-template-columns: 1fr; gap: 13px; }
+    .shine-event-art,.acamp-event-mark { min-height: 155px; }
+    .future-event-copy p { min-height: 0; }
+}
+@media (max-width:390px) { .future-events { padding-right: 13px; padding-left: 13px; } }
